@@ -1,3 +1,3 @@
 # code
 
-(import Worker in Webpack)[]
+[import Worker in Webpack](/WorkerInWebpack.md)

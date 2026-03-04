@@ -1,6 +1,7 @@
 # code
 
 ## WebWorker in webpack
+**webpack config:**
 ```
 ...
 config.module
@@ -17,4 +18,21 @@ config.module
 // Важно для корректной работы в воркере
 config.output.globalObject('this');
 ...
+```
+
+**use WebWorker:**
+```
+import MyWorker from '{name}.worker.js'
+
+const worker = new MyWorker()
+
+worker.addEventListener('message', res => console.log(res.data))
+worker.postMessage('worker')
+```
+
+**Worker file {name}.worker.js:**
+```
+self.addEventListener('message', function(e) {
+    self.postMessage(e.data + '-return')
+})
 ```
